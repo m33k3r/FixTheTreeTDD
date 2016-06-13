@@ -1,7 +1,7 @@
 class NoApplesError < StandardError; end
 
 class Tree
-  attr_accessor :height, :age, :alive
+  attr_reader :height, :age, :alive
   TREE_DEATH_AGE = 60
   def initialize
     @height = 0
@@ -14,7 +14,7 @@ class Tree
   end
 
   def dead?
-    @age > TREE_DEATH_AGE
+    age > TREE_DEATH_AGE
   end
 end
 
@@ -36,7 +36,7 @@ class AppleTree < Tree
     when 16..25
       @height += 0.5
       add_apples(create_apple(3))
-    when 25..40
+    when 26..40
       @height += 0.2
       add_apples(create_apple(2))
     else
